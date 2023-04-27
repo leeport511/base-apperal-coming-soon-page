@@ -12,6 +12,9 @@ export default {
                 'dark-grayish-red' : 'hsl(0, 6%, 24%)',
 
             },
+            backgroundImage: {
+                'base-bg': "url('images/bg-pattern-desktop.svg')",
+              }
         },
     },
     plugins: [],
