@@ -2,18 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Josefin Sans', Courier, monospace;
+    font-family: "Josefin Sans", Courier, monospace;
 }
 
 .backgrd {
-    background: linear-gradient(135deg, hsl(0, 10%, 90%), hsl(0, 100%, 97%) 10%);
+    background: linear-gradient(
+        135deg,
+        hsl(0, 10%, 90%),
+        hsl(0, 100%, 97%) 10%
+    );
 }
 
 .button-color {
-    background: linear-gradient(135deg, hsl(0, 80%, 86%),  hsl(0, 74%, 74%) );
+    background: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
+}
+
+.button-color:hover {
+    background: linear-gradient(
+        135deg,
+        hsl(0, 80%, 80%),
+        hsl(0, 100%, 88%) 10%
+    );
 }

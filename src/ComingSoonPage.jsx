@@ -27,7 +27,7 @@ export const ComingSoonPage = () => {
     };
 
     return (
-        <div className="backgrd xl:bg-[url('../images/bg-pattern-desktop.svg')] xl:flex xl:w-[100%] xl:items-center xl:justify-evenly xl:rounded-3xl xl:border-desaturated-red border xl:border">
+        <div className="backgrd xl:bg-[url('../images/bg-pattern-desktop.svg')] xl:flex xl:w-[100%] xl:items-center xl:justify-evenly xl:rounded-3xl xl:border-desaturated-red border xl:border min-h-screen xl:min-h-fit">
             <div className="xl:ml-28 xl:flex xl:flex-col">
                 <section className="xl:w-[60%]">
                     <header className="p-8">
