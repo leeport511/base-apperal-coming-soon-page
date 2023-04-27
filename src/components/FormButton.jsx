@@ -1,8 +1,8 @@
 import React from "react";
 
-export const FormButton = () => {
+export const FormButton = ({onClick}) => {
     return (
-        <button className="button-color absolute right-0 top-0 flex w-16 justify-center  rounded-3xl p-4 hover:scale-110 hover:opacity-70 xl:w-24">
+        <button type='submit' onClick={onClick} className="button-color absolute right-0 top-[1px] flex w-16 justify-center  rounded-3xl p-[14px] hover:translate-x-0.5 hover:opacity-60 xl:w-24">
             <img src="../images/icon-arrow.svg" alt="arrow" />
         </button>
     );

@@ -2,7 +2,7 @@ import React from "react";
 
 export const IconError = () => {
     return (
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" className="absolute top-[17%] right-20 xl:right-28">
             <g fill="none" fill-rule="evenodd">
                 <circle cx="12" cy="12" r="12" fill="#F96464" />
                 <path

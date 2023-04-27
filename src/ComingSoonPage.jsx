@@ -1,10 +1,34 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import { FormButton } from "./components/FormButton";
+import { IconError } from "./components/IconError";
 
 export const ComingSoonPage = () => {
+    const [email, setEmail] = useState("");
+    const [isValid, setIsValid] = useState(true);
+
+    const handleInputChange = ({ target }) => {
+        setEmail(target.value);
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setEmail(email);
+
+        const emailValue = email;
+
+        if (emailValue === "" || !emailValue.includes("@")) {
+            setIsValid(!isValid);
+            console.log("Please enter a valid email");
+            return;
+        }
+
+        setEmail(emailValue);
+        setIsValid(isValid);
+    };
+
     return (
-        <div className="backgrd xl:flex xl:items-center xl:justify-evenly xl:w-[100%]">
-            <div className="xl:flex xl:flex-col xl:ml-28">
+        <div className="backgrd xl:flex xl:w-[100%] xl:items-center xl:justify-evenly xl:rounded-3xl">
+            <div className="xl:ml-28 xl:flex xl:flex-col">
                 <section className="xl:w-[60%]">
                     <header className="p-8">
                         <picture>
@@ -15,7 +39,7 @@ export const ComingSoonPage = () => {
                             />
                         </picture>
                     </header>
-                    <picture >
+                    <picture>
                         <img
                             src="./images/hero-mobile.jpg"
                             alt="woman looking the camera"
@@ -24,10 +48,10 @@ export const ComingSoonPage = () => {
                     </picture>
                 </section>
                 <main className="mt-8 flex flex-col items-center justify-center px-5 py-2 xl:items-start">
-                    <div className="my-8 text-center xl:text-left xl:w-[50%] ">
-                        <h1 className="mb-8 text-5xl font-light uppercase tracking-[0.7rem] text-desaturated-red xl:tracking-[0.9rem]">
+                    <div className="my-8 text-center xl:w-[50%] xl:text-left ">
+                        <h1 className="mb-8 text-5xl font-light uppercase tracking-[0.7rem] text-desaturated-red xl:text-6xl xl:tracking-[0.9rem]">
                             we're{" "}
-                            <span className="font-semibold text-dark-grayish-red">
+                            <span className="font-semibold text-dark-grayish-red xl:font-normal">
                                 coming soon
                             </span>
                         </h1>
@@ -37,15 +61,30 @@ export const ComingSoonPage = () => {
                             up-to-date with announcements and our launch deals.
                         </p>
                     </div>
-                    <form className="relative flex w-80 items-center justify-center mb-16 xl:w-[50%]">
+                    <form className="relative mb-16 flex w-80 flex-col justify-center xl:w-[50%]">
                         <input
                             type="email"
                             placeholder="Email Address"
-                            className="w-[100%] rounded-3xl border border-desaturated-red bg-inherit p-3 pl-6 placeholder-desaturated-red placeholder-opacity-50 outline-none"
+                            className={`w-[100%] rounded-3xl border border-desaturated-red bg-inherit p-3 pl-6 placeholder-desaturated-red placeholder-opacity-50 outline-none ${!isValid && 'border-red-500'} `}
+                            name="email"
+                            value={email}
+                            onChange={handleInputChange}
                         />
                         <span>
-                            <FormButton />
+                            {
+                               !isValid && <IconError />
+                            }
                         </span>
+                        <span>
+                            <FormButton onClick={handleSubmit} />
+                        </span>
+                        <div>
+                            {!isValid && (
+                                <p className="mt-2 text-red-500 text-xs ml-6">
+                                    Please provide a valid email
+                                </p>
+                            )}
+                        </div>
                     </form>
                 </main>
             </div>
@@ -53,7 +92,7 @@ export const ComingSoonPage = () => {
                 <img
                     src="./images/hero-desktop.jpg"
                     alt="woman looking the camera"
-                    className="hidden xl:block"
+                    className="hidden xl:block xl:rounded-r-3xl"
                 />
             </picture>
         </div>
